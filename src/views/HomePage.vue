@@ -3,14 +3,15 @@
 <script>
 import { defineComponent } from "vue";
 
-import mqtt from "mqtt/dist/mqtt";
+const mqtt = require("mqtt/dist/mqtt");
 
 var options = {
-  host: "5359dba8b3e745a2b0f69e5c3b0f6ae7.s1.eu.hivemq.cloud",
-  port: 8883,
-  protocol: "mqtts",
-  username: "anikethivemq",
-  password: "fZD_VQ85#DC6A5u",
+  //   host: "5359dba8b3e745a2b0f69e5c3b0f6ae7.s1.eu.hivemq.cloud",
+  //   port: 8883,
+  //   protocol: "mqtt",
+  username: "testuser",
+  password: "password",
+  rejectUnauthorized: false,
 };
 
 export default defineComponent({
@@ -19,7 +20,10 @@ export default defineComponent({
     console.log(options);
 
     // initialize the MQTT client
-    var client = mqtt.connect(options);
+    var client = mqtt(
+      "ws://5359dba8b3e745a2b0f69e5c3b0f6ae7.s1.eu.hivemq.cloud:8884",
+      options
+    );
 
     // setup the callbacks
     client.on("connect", function () {
