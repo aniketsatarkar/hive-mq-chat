@@ -21,7 +21,7 @@ export default defineComponent({
 
     // initialize the MQTT client
     var client = mqtt(
-      "ws://5359dba8b3e745a2b0f69e5c3b0f6ae7.s1.eu.hivemq.cloud:8884",
+      "wss://5359dba8b3e745a2b0f69e5c3b0f6ae7.s1.eu.hivemq.cloud:8884",
       options
     );
 
